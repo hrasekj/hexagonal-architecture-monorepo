@@ -1,0 +1,8 @@
+// see the documentation: https://biomejs.dev/reference/vscode/
+{
+	"tailwindCSS.experimental.configFile": "packages/ui/src/styles/globals.css",
+	"editor.codeActionsOnSave": {
+		"source.organizeImports.biome": "explicit",
+		"source.fixAll.biome": "explicit"
+	}
+}

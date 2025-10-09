@@ -1,0 +1,8 @@
+<!-- https://github.com/biomejs/biome-intellij/blob/f048ded45d7c3e14c2a4b97fdc413fbbc45fcf3e/src/main/kotlin/com/github/biomejs/intellijbiome/settings/BiomeSettings.kt-->
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BiomeSettings">
+    <option name="sortImportOnSave" value="true" />
+    <option name="applySafeFixesOnSave" value="true" />
+  </component>
+</project>
