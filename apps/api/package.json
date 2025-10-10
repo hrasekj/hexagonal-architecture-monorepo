@@ -1,0 +1,19 @@
+{
+  "name": "api",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'Development command not implemented'",
+    "build": "echo 'Build command not implemented'",
+    "lint": "biome lint",
+    "lint:fix": "biome lint --write",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@shared/biome-config": "workspace:*",
+    "@types/node": "^24.7.1",
+    "typescript": "^5.9.3"
+  }
+}
