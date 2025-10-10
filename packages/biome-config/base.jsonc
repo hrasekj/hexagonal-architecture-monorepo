@@ -1,0 +1,86 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.2.5/schema.json",
+  "files": {
+    "ignoreUnknown": true
+  },
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true,
+    "defaultBranch": "main"
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 100
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "correctness": {
+        "noUnusedImports": {
+          "level": "error",
+          "fix": "none",
+          "options": {}
+        },
+        "noUnusedVariables": {
+          "level": "error",
+          "fix": "none",
+          "options": {}
+        }
+      },
+      "suspicious": {
+        "noConsole": "error"
+      },
+      "style": {
+        "useImportType": "error",
+        "useNodejsImportProtocol": {
+          "level": "error",
+          // This rule have unsafe fix by default.
+          // When set to "safe", it will fix the import protocol on save.
+          "fix": "safe",
+          "options": {}
+        },
+        "noNegationElse": "warn",
+        "useCollapsedElseIf": "warn",
+        "useConsistentArrayType": "warn",
+        "useShorthandAssign": "warn",
+        "noYodaExpression": "warn"
+      }
+    }
+  },
+  "javascript": {
+    "parser": {},
+    "formatter": {
+      "quoteStyle": "single",
+      "semicolons": "asNeeded"
+    }
+  },
+  "json": {
+    "parser": {
+      "allowTrailingCommas": true
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["**/*.test.ts"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noConsole": "warn"
+          }
+        }
+      }
+    }
+  ]
+}

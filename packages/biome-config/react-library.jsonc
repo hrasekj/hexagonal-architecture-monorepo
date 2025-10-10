@@ -1,0 +1,20 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.2.5/schema.json",
+  "linter": {
+    "rules": {
+      "correctness": {
+        "noNodejsModules": "error"
+      },
+      "style": {}
+    }
+  },
+  "javascript": {
+    "parser": {
+      "jsxEverywhere": false
+    },
+    "formatter": {
+      "quoteStyle": "double",
+      "semicolons": "always"
+    }
+  }
+}
