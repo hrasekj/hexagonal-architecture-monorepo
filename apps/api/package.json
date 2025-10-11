@@ -4,16 +4,18 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "echo 'Development command not implemented'",
-    "build": "echo 'Build command not implemented'",
+    "dev": "vite-node src/main.ts",
+    "build": "vite build",
     "lint": "biome lint",
     "lint:fix": "biome lint --write",
     "typecheck": "tsc --noEmit"
   },
-  "dependencies": {},
   "devDependencies": {
     "@shared/biome-config": "workspace:*",
     "@types/node": "^24.7.1",
-    "typescript": "^5.9.3"
+    "rollup-plugin-node-externals": "^8.1.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.9",
+    "vite-node": "^3.2.4"
   }
 }
