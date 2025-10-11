@@ -17,6 +17,7 @@
     "@shared/biome-config": "workspace:*",
     "@shared/typescript-config": "workspace:*",
     "turbo": "^2.5.8",
+    "type-fest": "^5.0.1",
     "typescript": "5.9.3"
   }
 }
