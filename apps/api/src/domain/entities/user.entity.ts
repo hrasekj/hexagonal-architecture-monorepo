@@ -5,6 +5,7 @@ import type { UserRecord } from './user.record.js'
 
 export class User implements Entity<UserData> {
   static schema = z.object({
+    name: z.string().min(2).max(100).optional(),
     email: z.email(),
     photoUrl: z.url().optional(),
     slackId: z.string().optional(),
@@ -21,6 +22,7 @@ export class User implements Entity<UserData> {
 
   static createNew(input: NewUserData): User {
     const data = {
+      name: input.name,
       email: input.email,
       photoUrl: input.photoUrl,
       slackId: input.slackId,
@@ -35,6 +37,7 @@ export class User implements Entity<UserData> {
   static fromRecord(record: UserRecord): User {
     const data = {
       email: record.email,
+      name: record.name ?? undefined,
       photoUrl: record.photoUrl ?? undefined,
       slackId: record.slackId ?? undefined,
       createdAt: new Date(record.createdAt),
@@ -49,8 +52,8 @@ export class User implements Entity<UserData> {
     return this.#pk
   }
 
-  clone(overrides?: Partial<UserData>): User {
-    return new User({ ...this.#data, ...overrides }, this.#pk)
+  clone(overrides?: Partial<UserData>, pk?: number): User {
+    return new User({ ...this.#data, ...overrides }, pk ?? this.#pk)
   }
 
   getData(): EntityData<UserData> {

@@ -1,8 +1,8 @@
-import { User } from '../entities/user.entity.js'
-import type { IUserRepository } from '../repositories/user.repository.js'
-import type { IUseCase } from './usecase.js'
+import { User } from '../../domain/entities/user.entity.js'
+import type { IUserRepository } from '../../domain/repositories/user.repository.js'
+import type { IUseCase } from '../../domain/use-case.js'
 
-export class CreateUserUseCase implements IUseCase {
+export class CreateUser implements IUseCase {
   #userRepository: IUserRepository
 
   constructor(userRepository: IUserRepository) {

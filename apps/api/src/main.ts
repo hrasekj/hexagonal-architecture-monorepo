@@ -1,18 +1,15 @@
-import { createServer } from 'node:http'
+import { registerShutdownSignalHandlers } from './application/shutdow-handler.js'
+import { createNodeHttpServerApplication } from './infrastructure/application/node-http-server.js'
+import { parseApiConfig } from './infrastructure/config/index.js'
 
 const startApp = async () => {
-  const server = createServer((_req, res) => {
-    res.writeHead(200, { 'Content-Type': 'application/json' })
-    res.end(
-      JSON.stringify({
-        data: 'Hello World!',
-      }),
-    )
-  })
+  const config = parseApiConfig(process.env)
+  const app = await createNodeHttpServerApplication(config)
 
-  server.listen(8080, () => {
-    // biome-ignore lint/suspicious/noConsole: <explanation>
-    console.log('Server started on port 8080')
+  await app.start()
+
+  registerShutdownSignalHandlers(async () => {
+    await app.stop()
   })
 }
 

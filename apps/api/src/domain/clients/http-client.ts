@@ -6,14 +6,16 @@ export interface IHttpClient {
   delete<T>(url: string, options?: HttpRequestOptions): Promise<HttpResponse<T>>
 }
 
-interface HttpRequestOptions {
-  headers?: Record<string, string>
+export interface HttpRequestOptions {
+  headers?: HttpHeaders
   params?: Record<string, string | number | boolean>
   timeoutMs?: number
 }
 
-interface HttpResponse<T> {
+export interface HttpResponse<T> {
   status: number
   data: T
-  headers: Record<string, string>
+  headers: HttpHeaders
 }
+
+export type HttpHeaders = Record<string, string>
