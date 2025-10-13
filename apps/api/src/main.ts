@@ -1,10 +1,13 @@
-import { registerShutdownSignalHandlers } from './application/shutdow-handler.js'
-import { createNodeHttpServerApplication } from './infrastructure/application/node-http-server.js'
-import { parseApiConfig } from './infrastructure/config/index.js'
+import { parseConfig } from './bootstrap/config.js'
+import { createContainer } from './bootstrap/container.js'
+import { createNodeHttpServerApplication } from './infrastructure/http-server/node-http-server.js'
+import { registerShutdownSignalHandlers } from './infrastructure/system/shutdow-handler.js'
 
 const startApp = async () => {
-  const config = parseApiConfig(process.env)
-  const app = await createNodeHttpServerApplication(config)
+  const config = parseConfig(process.env)
+  const container = await createContainer(config)
+
+  const app = await createNodeHttpServerApplication(config, container)
 
   await app.start()
 

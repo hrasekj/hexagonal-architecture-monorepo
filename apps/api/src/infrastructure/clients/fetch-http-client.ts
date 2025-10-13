@@ -1,4 +1,9 @@
-import type { HttpHeaders, HttpRequestOptions, HttpResponse, IHttpClient } from '../../domain/clients/http-client.js'
+import type {
+  HttpHeaders,
+  HttpRequestOptions,
+  HttpResponse,
+  IHttpClient,
+} from '../../application/clients/http-client.js'
 
 export class FetchHttpClient implements IHttpClient {
   async get<T>(url: string, options?: HttpRequestOptions): Promise<HttpResponse<T>> {

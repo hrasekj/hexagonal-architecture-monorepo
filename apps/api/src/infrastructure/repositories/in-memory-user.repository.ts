@@ -1,5 +1,5 @@
+import type { IUserRepository } from '../../application/repositories/user.repository.js'
 import { User } from '../../domain/entities/user.entity.js'
-import type { IUserRepository } from '../../domain/repositories/user.repository.js'
 
 export class InMemoryUserRepository implements IUserRepository {
   #users: User[] = []

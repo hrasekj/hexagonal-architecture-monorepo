@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { validate } from '../lib/zod.js'
+import { validate } from '../utils/zod.js'
 import type { Entity, EntityData } from './entity.js'
 import type { UserRecord } from './user.record.js'
 

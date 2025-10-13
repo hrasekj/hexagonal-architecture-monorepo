@@ -1,6 +1,6 @@
 import { User } from '../../domain/entities/user.entity.js'
-import type { IUserRepository } from '../../domain/repositories/user.repository.js'
-import type { IUseCase } from '../../domain/use-case.js'
+import type { IUseCase } from '../interfaces/use-case.js'
+import type { IUserRepository } from '../repositories/user.repository.js'
 
 export class CreateUser implements IUseCase {
   #userRepository: IUserRepository

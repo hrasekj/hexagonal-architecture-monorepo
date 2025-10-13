@@ -1,5 +1,5 @@
 import type { ZodType } from 'zod'
-import { ValidationError } from './errors.js'
+import { ValidationError } from '../errors/index.js'
 
 export const validate = (data: unknown, schema: ZodType, schemaName: string): void => {
   const result = schema.safeParse(data)
