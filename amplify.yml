@@ -6,22 +6,23 @@ applications:
           commands:
             - corepack enable
             - echo "node-linker=hoisted" >> ./.npmrc
-            - pnpm install --frozen-lockfile --prefer-offline
+            - pnpm install --filter=...@qseat/api --frozen-lockfile --prefer-offline
         build:
           commands:
-            - ./apps/api/node_modules/.bin/ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
+            - echo "Let's build the backend $AWS_BRANCH"
+            - pnpm ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
     frontend:
       phases:
           preBuild:
             commands:
               - echo "No build step – static hosting of index.html"
-          artifacts:
-            baseDirectory: ./
-            files:
-              - index.html
-          cache:
-            paths: []
-      appRoot: apps/api
+      artifacts:
+        baseDirectory: ./
+        files:
+          - index.html
+      cache:
+        paths: []
+    appRoot: apps/api
 
   - frontend:
       buildPath: '/'
@@ -30,7 +31,7 @@ applications:
           commands:
             - corepack enable
             - echo "node-linker=hoisted" >> ./.npmrc
-            - pnpm install --frozen-lockfile --prefer-offline
+            - pnpm install --filter=...@qseat/web --frozen-lockfile --prefer-offline
         build:
           commands:
             - pnpm build --filter=@qseat/web
