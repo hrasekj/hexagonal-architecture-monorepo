@@ -8,7 +8,7 @@ applications:
             - pnpm install --frozen-lockfile --prefer-offline
         build:
           commands:
-            - pnpm build --filter=@qseat/web
+            - ./node_modules/.bin/next build
       artifacts:
         baseDirectory: apps/web/out
         files:
