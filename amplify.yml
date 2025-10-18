@@ -4,13 +4,11 @@ applications:
       phases:
         preBuild:
           commands:
-            # - source ~/.nvm/nvm.sh && nvm use
-            # - npm install -g pnpm@10.18.2
             - corepack enable
-            - pnpm install --frozen-lockfile
+            - pnpm install --frozen-lockfile --prefer-offline
         build:
           commands:
-            - pnpm run build --filter=@qseat/web
+            - pnpm build --filter=@qseat/web
       artifacts:
         baseDirectory: apps/web/out
         files:
