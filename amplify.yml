@@ -1,5 +1,28 @@
 version: 1
 applications:
+  - backend:
+      phases:
+        preBuild:
+          commands:
+            - corepack enable
+            - echo "node-linker=hoisted" >> ./.npmrc
+            - pnpm install --frozen-lockfile --prefer-offline
+        build:
+          commands:
+            - ./apps/api/node_modules/.bin/ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
+    frontend:
+      phases:
+          preBuild:
+            commands:
+              - echo "No build step – static hosting of index.html"
+          artifacts:
+            baseDirectory: ./
+            files:
+              - index.html
+          cache:
+            paths: []
+      appRoot: apps/api
+
   - frontend:
       buildPath: '/'
       phases:
