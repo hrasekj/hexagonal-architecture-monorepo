@@ -1,8 +1,14 @@
 import type { IApplication } from '../../application/interfaces/application.js'
-import type { AppConfig } from '../../bootstrap/config.types.js'
 import type { Container } from '../../bootstrap/container.types.js'
 
-export const createCronJobScheduler = async (config: AppConfig, container: Container): Promise<IApplication> => {
+interface CronJobSchedulerConfig {
+  //
+}
+
+export const createCronJobScheduler = async (
+  container: Container,
+  config: CronJobSchedulerConfig,
+): Promise<IApplication> => {
   // TODO
 
   return {

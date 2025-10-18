@@ -1,6 +1,6 @@
 import { parseConfig } from './bootstrap/config.js'
 import { createContainer } from './bootstrap/container.js'
-import { createNodeHttpServerApplication } from './infrastructure/http-server/node-http-server.js'
+import { createNodeHttpServerApplication } from './infrastructure/http/node-http-server.js'
 import { registerShutdownSignalHandlers } from './infrastructure/system/shutdow-handler.js'
 
 const startApp = async () => {

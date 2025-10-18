@@ -1,11 +1,14 @@
 import { createServer } from 'node:http'
 import type { IApplication } from '../../application/interfaces/application.js'
-import type { AppConfig } from '../../bootstrap/config.types.js'
 import type { Container } from '../../bootstrap/container.types.js'
 
+interface NodeHttpServerConfig {
+  port: number
+}
+
 export const createNodeHttpServerApplication = async (
-  config: AppConfig,
   container: Container,
+  config: NodeHttpServerConfig,
 ): Promise<IApplication> => {
   const server = createServer(async (_req, res) => {
     const user = await container.userRepository.findById(1)
@@ -21,9 +24,9 @@ export const createNodeHttpServerApplication = async (
 
   return {
     async start() {
-      server.listen(8080, () => {
+      server.listen(config.port, () => {
         // biome-ignore lint/suspicious/noConsole: application level without bootstraped logger
-        console.info('SERVER: started listening on port 8080')
+        console.info(`SERVER: started listening on port ${config.port}`)
       })
     },
 
