@@ -1,0 +1,23 @@
+version: 1
+applications:
+  - frontend:
+      phases:
+        preBuild:
+          commands:
+            # - source ~/.nvm/nvm.sh && nvm use
+            # - npm install -g pnpm@10.18.2
+            - corepack enable
+            - pnpm install --frozen-lockfile
+        build:
+          commands:
+            - pnpm run build --filter=@qseat/web
+      artifacts:
+        baseDirectory: apps/web/out
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
+          - apps/web/node_modules/**/*
+          - apps/web/.next/cache/**/*
+    appRoot: apps/web
