@@ -10,12 +10,11 @@ applications:
           commands:
             - ./node_modules/.bin/next build
       artifacts:
-        baseDirectory: apps/web/out
+        baseDirectory: ./out
         files:
           - '**/*'
       cache:
         paths:
-          - node_modules/**/*
-          - apps/web/node_modules/**/*
-          - apps/web/.next/cache/**/*
+          - ./node_modules/**/*
+          - ./.next/cache/**/*
     appRoot: apps/web
