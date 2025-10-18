@@ -1,20 +1,23 @@
 version: 1
 applications:
   - frontend:
+      buildPath: '/'
       phases:
         preBuild:
           commands:
             - corepack enable
+            - echo "node-linker=hoisted" >> ./.npmrc
             - pnpm install --frozen-lockfile --prefer-offline
         build:
           commands:
-            - ./node_modules/.bin/next build
+            - pnpm build --filter=@qseat/web
       artifacts:
-        baseDirectory: ./.next
+        baseDirectory: ./apps/web/.next
         files:
           - '**/*'
       cache:
         paths:
           - ./node_modules/**/*
-          - ./.next/cache/**/*
+          - ./apps/web/node_modules/**/*
+          - ./apps/web/.next/cache/**/*
     appRoot: apps/web
