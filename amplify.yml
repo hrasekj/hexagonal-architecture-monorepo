@@ -10,7 +10,7 @@ applications:
           commands:
             - ./node_modules/.bin/next build
       artifacts:
-        baseDirectory: ./out
+        baseDirectory: ./
         files:
           - '**/*'
       cache:
