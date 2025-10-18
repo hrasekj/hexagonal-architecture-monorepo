@@ -10,8 +10,14 @@
     "lint:fix": "biome lint --write",
     "typecheck": "tsc --noEmit"
   },
+  "exports": {
+    "./amplify": "./infrastructure/amplify/backend.ts"
+  },
   "devDependencies": {
+    "@aws-amplify/backend": "^1.16.1",
+    "@aws-amplify/backend-cli": "^1.8.0",
     "@shared/biome-config": "workspace:*",
+    "@types/aws-lambda": "^8.10.156",
     "@types/node": "^24.7.1",
     "rollup-plugin-node-externals": "^8.1.1",
     "typescript": "^5.9.3",
