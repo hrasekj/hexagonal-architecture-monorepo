@@ -1,6 +1,7 @@
 version: 1
 applications:
-  - backend:
+  - appRoot: apps/api
+    backend:
       phases:
         preBuild:
           commands:
@@ -9,7 +10,7 @@ applications:
         build:
           commands:
             - echo "Let's build the backend $AWS_BRANCH id $AWS_APP_ID"
-            - pnpm ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
+            - pnpm ampx pipeline-deploy --debug --branch $AWS_BRANCH --app-id $AWS_APP_ID
     frontend:
       phases:
         preBuild:
@@ -21,4 +22,3 @@ applications:
           - index.html
       case:
         paths: []
-    appRoot: apps/api
