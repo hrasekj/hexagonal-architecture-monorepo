@@ -3,7 +3,10 @@ packages:
   - packages/*
 
 onlyBuiltDependencies:
+  - '@parcel/watcher'
   - '@tailwindcss/oxide'
+  - aws-sdk
+  - core-js
   - core-js-pure
   - esbuild
   - sharp

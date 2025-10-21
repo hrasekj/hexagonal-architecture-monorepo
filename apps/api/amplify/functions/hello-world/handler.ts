@@ -9,6 +9,7 @@ export const handler: APIGatewayProxyHandler = async (event) => {
     headers: {
       'Access-Control-Allow-Origin': '*', // Restrict this to domains you trust
       'Access-Control-Allow-Headers': '*', // Specify only the headers you need to allow
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({ currentDate: new Date().toISOString(), content: 'Hello, World!' }),
   }

@@ -5,7 +5,6 @@ applications:
         preBuild:
           commands:
             - corepack enable
-            - echo "node-linker=hoisted" >> ./.npmrc
             - pnpm install --frozen-lockfile --prefer-offline
         build:
           commands:
