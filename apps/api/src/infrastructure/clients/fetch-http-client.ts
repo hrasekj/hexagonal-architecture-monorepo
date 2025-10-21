@@ -1,5 +1,6 @@
 import type {
   HttpHeaders,
+  HttpRequest,
   HttpRequestOptions,
   HttpResponse,
   IHttpClient,
@@ -60,8 +61,18 @@ export class FetchHttpClient implements IHttpClient {
     return this.mapResponse(response)
   }
 
+  async request<T>(request: HttpRequest): Promise<HttpResponse<T>> {
+    const response = await fetch(request.url, {
+      method: request.method,
+      headers: request.headers,
+      body: request.body,
+    })
+
+    return this.mapResponse(response)
+  }
+
   private async mapResponse<T>(response: Response): Promise<HttpResponse<T>> {
-    const data = await response.json()
+    const data = (await response.json()) as T
 
     const headers: HttpHeaders = {}
 

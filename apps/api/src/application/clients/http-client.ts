@@ -16,7 +16,7 @@ export interface HttpRequestOptions {
 export interface HttpRequest extends HttpRequestOptions {
   url: string
   method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE'
-  body?: unknown
+  body?: RequestInit['body']
 }
 
 export interface HttpResponse<T> {

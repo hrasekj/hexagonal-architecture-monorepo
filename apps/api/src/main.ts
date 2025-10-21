@@ -7,7 +7,7 @@ const startApp = async () => {
   const config = parseConfig(process.env)
   const container = await createContainer(config)
 
-  const app = await createNodeHttpServerApplication(config, container)
+  const app = await createNodeHttpServerApplication(container, config)
 
   await app.start()
 
