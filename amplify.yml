@@ -25,13 +25,13 @@ applications:
 
   - appRoot: apps/web
     frontend:
-        buildPath: /apps/web
+        buildPath: /
         phases:
           preBuild:
             commands:
               - corepack enable
               - pnpm install --frozen-lockfile --prefer-offline
-              - pnpm ampx generate outputs --branch $AWS_BRANCH --app-id $BACKEND_APP_ID
+              - pnpm ampx generate outputs --branch $AWS_BRANCH --app-id $BACKEND_APP_ID --debug
           build:
             commands:
               - pnpm build --filter=@qseat/web
