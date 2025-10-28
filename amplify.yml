@@ -35,6 +35,7 @@ applications:
               - pnpm ampx generate outputs --branch $AWS_BRANCH --app-id $BACKEND_APP_ID --debug
           build:
             commands:
+              - echo "Building frontend"
               - pnpm build --filter=@qseat/web
               - du -csh *
         artifacts:
