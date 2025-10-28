@@ -29,6 +29,7 @@ applications:
         phases:
           preBuild:
             commands:
+              - pwd
               - corepack enable
               - pnpm config set node-linker hoisted
               - pnpm install --frozen-lockfile --prefer-offline
