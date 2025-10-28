@@ -4,11 +4,11 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "vite-node src/main.ts",
-    "build": "vite build",
+    "dev": "ampx sandbox --outputs-out-dir ../../",
+    "build": "echo 'No build script available'",
+    "build:check": "tsc --noEmit",
     "lint": "biome lint",
-    "lint:fix": "biome lint --write",
-    "typecheck": "tsc --noEmit"
+    "lint:fix": "biome lint --write"
   },
   "exports": {
     "./amplify": "./amplify/backend.ts"

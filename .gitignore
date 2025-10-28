@@ -35,5 +35,7 @@ npm-debug.log*
 .DS_Store
 *.pem
 
-# aws
+# amplify
 **/.amplify
+**/amplify_outputs*
+**/amplifyconfiguration*

@@ -10,7 +10,7 @@ applications:
         build:
           commands:
             - echo "Let's build the backend $AWS_BRANCH id $AWS_APP_ID"
-            - pnpm ampx pipeline-deploy --debug --branch $AWS_BRANCH --app-id $AWS_APP_ID
+            - pnpm ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID --debug
     frontend:
       phases:
         preBuild:
@@ -20,5 +20,5 @@ applications:
         baseDirectory: ./
         files:
           - index.html
-      case:
+      cache:
         paths: []
