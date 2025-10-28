@@ -31,10 +31,12 @@ applications:
             commands:
               - corepack enable
               - pnpm install --frozen-lockfile --prefer-offline
+              - pnpm config set node-linker hoisted
               - pnpm ampx generate outputs --branch $AWS_BRANCH --app-id $BACKEND_APP_ID --debug
           build:
             commands:
               - pnpm build --filter=@qseat/web
+              - du -csh *
         artifacts:
           baseDirectory: ./apps/web/.next
           files:
