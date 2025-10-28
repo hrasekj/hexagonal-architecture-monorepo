@@ -7,6 +7,7 @@
     "dev": "ampx sandbox --outputs-out-dir ../../",
     "build": "echo 'No build script available'",
     "build:check": "tsc --noEmit",
+    "deploy": "ampx pipeline-deploy --outputs-out-dir ../../ --branch $AWS_BRANCH --app-id $AWS_APP_ID --debug",
     "lint": "biome lint",
     "lint:fix": "biome lint --write"
   },

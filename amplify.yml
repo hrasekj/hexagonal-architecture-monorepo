@@ -8,11 +8,10 @@ applications:
             - corepack enable
             - pnpm config set node-linker hoisted
             - pnpm install --frozen-lockfile --prefer-offline
-            - cd apps/api
         build:
           commands:
             - echo "Let's build the backend $AWS_BRANCH id $AWS_APP_ID"
-            - pnpm ampx pipeline-deploy --outputs-out-dir ../../ --branch $AWS_BRANCH --app-id $AWS_APP_ID --debug
+            - pnpm deploy --filter=@qseat/api
 
     frontend:
         buildPath: /
@@ -20,8 +19,7 @@ applications:
           preBuild:
             commands:
               - pwd
-              - corepack enable
-              - pnpm install --frozen-lockfile --prefer-offline
+              - echo "Let's build the frontend $AWS_BRANCH id $AWS_APP_ID"
           build:
             commands:
               - pnpm build --filter=@qseat/web
