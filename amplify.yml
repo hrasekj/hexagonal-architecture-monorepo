@@ -5,21 +5,23 @@ applications:
       phases:
         preBuild:
           commands:
+            - pwd
             - corepack enable
             - pnpm install --frozen-lockfile --prefer-offline
+            - cd apps/api
         build:
           commands:
             - echo "Let's build the backend $AWS_BRANCH id $AWS_APP_ID"
-            - pnpm ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID --debug
+            - pnpm ampx pipeline-deploy --outputs-out-dir ../../ --branch $AWS_BRANCH --app-id $AWS_APP_ID --debug
 
     frontend:
         buildPath: /
         phases:
           preBuild:
             commands:
+              - pwd
               - corepack enable
               - pnpm install --frozen-lockfile --prefer-offline
-              - pnpm ampx generate outputs --branch $AWS_BRANCH --app-id $BACKEND_APP_ID --debug
           build:
             commands:
               - pnpm build --filter=@qseat/web
