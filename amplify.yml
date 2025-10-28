@@ -5,8 +5,8 @@ applications:
       phases:
         preBuild:
           commands:
-            - pwd
             - corepack enable
+            - pnpm config set node-linker hoisted
             - pnpm install --frozen-lockfile --prefer-offline
             - cd apps/api
         build:
@@ -25,6 +25,7 @@ applications:
           build:
             commands:
               - pnpm build --filter=@qseat/web
+              - du -csh *
         artifacts:
           baseDirectory: ./apps/web/.next
           files:
