@@ -22,3 +22,25 @@ applications:
           - index.html
       cache:
         paths: []
+
+  - appRoot: apps/web
+    frontend:
+        buildPath: /apps/web
+        phases:
+          preBuild:
+            commands:
+              - corepack enable
+              - pnpm install --frozen-lockfile --prefer-offline
+              - pnpm ampx generate outputs --branch $AWS_BRANCH --app-id $BACKEND_APP_ID
+          build:
+            commands:
+              - pnpm build --filter=@qseat/web
+        artifacts:
+          baseDirectory: ./apps/web/.next
+          files:
+            - '**/*'
+        cache:
+          paths:
+            - ./node_modules/**/*
+            - ./apps/web/node_modules/**/*
+            - ./apps/web/.next/cache/**/*
