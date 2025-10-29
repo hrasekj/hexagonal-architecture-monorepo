@@ -15,12 +15,12 @@
   },
   "devDependencies": {
     "@shared/biome-config": "workspace:*",
-    "@types/aws-lambda": "^8.10.156",
-    "@types/node": "^24.7.1",
+    "@types/aws-lambda": "^8.10.157",
+    "@types/node": "^24.9.2",
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "aws-cdk-lib": "^2.220.0",
+    "aws-cdk-lib": "^2.221.0",
     "zod": "^4.1.12"
   }
 }
