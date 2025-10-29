@@ -32,6 +32,7 @@ applications:
               - corepack enable
               - pnpm config set node-linker hoisted
               - pnpm install --frozen-lockfile --prefer-offline
+              - pnpm ampx generate outputs --branch $AWS_BRANCH --app-id $BACKEND_APP_ID --debug
           build:
             commands:
               - pnpm build --filter=@qseat/web
