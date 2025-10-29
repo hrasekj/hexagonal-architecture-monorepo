@@ -32,7 +32,8 @@ applications:
               - corepack enable
               - pnpm config set node-linker hoisted
               - pnpm install --frozen-lockfile --prefer-offline
-              - pnpm ampx generate outputs --branch $AWS_BRANCH --app-id $BACKEND_APP_ID --debug
+              - echo "Let's build the frontend $AWS_BRANCH id $AWS_APP_ID on $AWS_REGION and $AWS_STACK_NAME ($BACKEND_STACK_NAME) and $BACKEND_APP_ID"
+              - pnpm ampx generate outputs --stack $BACKEND_STACK_NAME --debug
           build:
             commands:
               - pnpm build --filter=@qseat/web
